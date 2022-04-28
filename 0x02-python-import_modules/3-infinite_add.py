@@ -2,10 +2,12 @@
 
 
 from sys import argv
-result = 0
 
+if __name__ == "__main__":
 
-for number in range(1, len(argv)):
-    result = result + int(argv[number])
+    result = 0
 
-print("{}".format(result))
+    for number in range(1, len(argv)):
+        result = result + int(argv[number])
+
+    print("{}".format(result))
