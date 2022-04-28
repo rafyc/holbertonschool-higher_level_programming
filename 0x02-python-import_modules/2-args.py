@@ -12,10 +12,10 @@ if __name__ == "__main__":
 
     elif len(argv) == 2:
         print("1 argument.")
+        print("{}: {}".format(i, argv[i]))
 
     else:
         print("{} arguments".format(len(argv) - 1))
-
-    for argument in range(1, len(argv)):
-        print("{}: {}".format(i, argv[i]))
-        i += 1
+        for argument in range(1, len(argv)):
+            print("{}: {}".format(i, argv[i]))
+            i += 1
