@@ -8,4 +8,4 @@ def best_score(a_dictionary):
     else:
         return None
 
-    """The index() method returns the index of the specified element in the list."""
+#The index() method returns the index of the specified element in the list.
