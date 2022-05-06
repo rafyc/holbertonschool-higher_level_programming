@@ -2,8 +2,10 @@
 
 def best_score(a_dictionary):
     if a_dictionary:
-        v = list(a_dictionary.values())
-        k = list(a_dictionary.keys())
-        return k[v.index(max(v))]
+        valueurs = list(a_dictionary.values())
+        cles = list(a_dictionary.keys())
+        return cles[valeurs.index(max(valeurs))]
     else:
         return None
+
+    """The index() method returns the index of the specified element in the list."""
