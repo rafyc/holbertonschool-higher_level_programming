@@ -5,9 +5,6 @@
 """
 
 
-from ctypes import sizeof
-
-
 class Square:
     """
     The class Square define a square
