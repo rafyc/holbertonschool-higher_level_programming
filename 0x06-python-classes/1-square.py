@@ -7,7 +7,6 @@ Class Square defines a square:
 
 
 class Square:
-
     """ The class Square define a square."""
 
     def __init__(self, size):
@@ -21,4 +20,3 @@ class Square:
              variable size is restricted)
              """
         self.__size = size
-        pass
