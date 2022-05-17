@@ -19,4 +19,5 @@ class Square:
              - __size: the size is a private attribute (that means the acces to
              variable size is restricted)
              """
+
         self.__size = size
