@@ -5,9 +5,6 @@
 """
 
 
-from multiprocessing.sharedctypes import Value
-
-
 class Square:
     """
     The class Square define a square
@@ -77,7 +74,7 @@ class Square:
 
         if type(value) is not tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if type(Value[0]) is not int:
+        if type(value[0]) is not int:
             raise TypeError("position must be a tuple of 2 positive integers")
         if type(value[1]) is not int:
             raise TypeError("position must be a tuple of 2 positive integers")
