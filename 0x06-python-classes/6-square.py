@@ -100,6 +100,8 @@ class Square:
         print(" ")
 
         for line in range(self.__size):
+            for pos0 in range(self.position[0]):
+                print("-", end="")
             for column in range(self.__size):
                 print("#", end="")
             print("")
