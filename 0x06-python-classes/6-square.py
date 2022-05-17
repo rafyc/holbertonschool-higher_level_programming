@@ -93,18 +93,18 @@ class Square:
         The my_print method prints in stdout
         the square with '#'
         """
+        if self.__size == 0:
+            print("")
+
         if self.position[1] > 0:
             for pos1 in range(self.position[1]):
-                print("-")
+                print("")
 
         print(" ")
 
         for line in range(self.__size):
             for pos0 in range(self.position[0]):
-                print("-", end="")
+                print(" ", end="")
             for column in range(self.__size):
                 print("#", end="")
-            print("")
-
-        if self.__size == 0:
             print("")
