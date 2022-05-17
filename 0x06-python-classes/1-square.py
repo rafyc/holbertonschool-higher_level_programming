@@ -11,7 +11,8 @@ class Square:
 
     def __init__(self, size):
         """
-             The __init__ method is used. This method run as soon as an object of
+             The __init__ method is used.
+             This method run as soon as an object of
              a classe is instantiated (= created).
              Args:
              - size: the size of the square
