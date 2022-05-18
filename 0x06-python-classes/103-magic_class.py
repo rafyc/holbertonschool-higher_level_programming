@@ -15,10 +15,10 @@ class MagiClass:
         self.__radius = radius
 
     def area(self):
-        return (self.radius ** 2) * math.pi
+        return (self.__radius ** 2) * math.pi
 
     def circumference(self):
-        return (self.radius * 2) * math.pi
+        return (2 * math.pi) * self.__radius
 
 
 dis.dis(MagiClass)
