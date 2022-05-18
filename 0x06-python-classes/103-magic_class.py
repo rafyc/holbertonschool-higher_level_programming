@@ -48,7 +48,6 @@ Disassembly of circumference:
 """
 
 
-import dis
 import math
 
 
@@ -65,6 +64,3 @@ class MagicClass:
 
     def circumference(self):
         return (2 * math.pi) * self.__radius
-
-
-dis.dis(MagicClass)
