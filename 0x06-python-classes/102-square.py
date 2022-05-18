@@ -63,25 +63,31 @@ class Square:
         return self.__size ** 2
 
     def __eq__(self, b):
-        """ comparison method compares if size == other."""
-        return self.__size ** 2 == b.__size ** 2
+        """ comparison method compares if size == b."""
+        if isinstance(b, Square):
+            return self.__size ** 2 == b.__size ** 2
 
-    def __sup__(self, other):
-        return self.__size ** 2 > other.__size ** 2
-        """comparison method compares if size == other."""
+    def __sup__(self, b):
+        if isinstance(b, Square):
+            return self.__size ** 2 > b.__size ** 2
+        """comparison method compares if size == b."""
 
-    def __supeq__(self, other):
-        """comparison method compares if size == other."""
-        return self.__size ** 2 >= other.__size ** 2
+    def __supeq__(self, b):
+        if isinstance(b, Square):
+            """comparison method compares if size == b."""
+            return self.__size ** 2 >= b.__size ** 2
 
-    def __inf__(self, other):
-        """comparison method compares if size == other."""
-        return self.__size ** 2 < other.__size ** 2
+    def __inf__(self, b):
+        if isinstance(b, Square):
+            """comparison method compares if size == b."""
+            return self.__size ** 2 < b.__size ** 2
 
-    def __infeg__(self, other):
-        """comparison method compares if size == other."""
-        return self.__size ** 2 <= other.__size ** 2
+    def __infeg__(self, b):
+        if isinstance(b, Square):
+            """comparison method compares if size == b."""
+            return self.__size ** 2 <= b.__size ** 2
 
-    def __dif__(self, other):
-        """comparison method compares if size == other."""
-        return self.__size ** 2 != other.__size ** 2
+    def __dif__(self, b):
+        if isinstance(b, Square):
+            """comparison method compares if size == b."""
+            return self.__size ** 2 != b.__size ** 2
