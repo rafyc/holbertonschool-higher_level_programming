@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-Class Square defines a square
-"""
-import dis
+
 import math
 
 
@@ -19,6 +16,3 @@ class MagiClass:
 
     def circumference(self):
         return (2 * math.pi) * self.__radius
-
-
-dis.dis(MagiClass)
