@@ -62,32 +62,32 @@ class Square:
         """
         return self.__size ** 2
 
-    def __eq__(self, b):
+    def eq(self, b):
         """ comparison method compares if size == b."""
         if isinstance(b, Square):
             return self.__size ** 2 == b.__size ** 2
 
-    def __sup__(self, b):
+    def sup(self, b):
         if isinstance(b, Square):
             return self.__size ** 2 > b.__size ** 2
         """comparison method compares if size == b."""
 
-    def __supeq__(self, b):
+    def supeq(self, b):
         if isinstance(b, Square):
             """comparison method compares if size == b."""
             return self.__size ** 2 >= b.__size ** 2
 
-    def __inf__(self, b):
+    def inf(self, b):
         if isinstance(b, Square):
             """comparison method compares if size == b."""
             return self.__size ** 2 < b.__size ** 2
 
-    def __infeg__(self, b):
+    def infeg(self, b):
         if isinstance(b, Square):
             """comparison method compares if size == b."""
             return self.__size ** 2 <= b.__size ** 2
 
-    def __dif__(self, b):
+    def dif(self, b):
         if isinstance(b, Square):
             """comparison method compares if size == b."""
             return self.__size ** 2 != b.__size ** 2
