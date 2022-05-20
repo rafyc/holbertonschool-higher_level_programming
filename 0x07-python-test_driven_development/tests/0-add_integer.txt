@@ -1,0 +1,85 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+Test Numbers
+-----------
+>>> add_integer(5, 5)
+10
+>>> add_integer(0, 5)
+5
+>>> add_integer(5, 0)
+5
+>>> add_integer(-5, 5)
+0
+>>> add_integer(5,-5)
+0
+>>> add_integer(-5, -5)
+-10
+>>> add_integer(5.12, 5)
+10
+>>> add_integer(5, 5.12)
+10
+
+
+Test Strings
+------------
+>>> add_integer("R", 6)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(6, "R")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer("R", "R")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(str(5), 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, str(5))
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+
+
+Test list
+------------
+
+>>> add_integer([5], 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, [5])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer([5], [5])
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(list("5"), 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(5, list("5"))
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(list("5"), list("5"))
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+
+Test tuple
+------------
+
+>>> add_integer([5], 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer([5], 5)
+Traceback (most recent call last):
+TypeError: a must be an integer
