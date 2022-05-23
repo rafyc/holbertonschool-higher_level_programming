@@ -1,7 +1,7 @@
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 >>> say_my_name("Raphaël")
-My name is Raphaël
+My name is Raphaël 
 
 >>> say_my_name("Raphaël", "Chemouni")
 My name is Raphaël Chemouni
@@ -9,7 +9,7 @@ My name is Raphaël Chemouni
 >>> say_my_name("Raphaël",)
 My name is Raphaël 
 
->>> say_my_name(("Raphaël", "Le"))
+>>> say_my_name(("Raphaël", "Chemouni"))
 Traceback (most recent call last):
 TypeError: first_name must be a string
 
