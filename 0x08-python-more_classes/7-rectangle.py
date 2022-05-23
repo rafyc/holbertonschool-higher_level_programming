@@ -4,10 +4,6 @@ Class Rectangle defines a Rectangle
 """
 
 
-from curses.textpad import rectangle
-from turtle import width
-
-
 class Rectangle:
     """
     Class that defines a Rectangle
