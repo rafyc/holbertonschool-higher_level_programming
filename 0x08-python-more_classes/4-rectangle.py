@@ -34,7 +34,7 @@ class Rectangle:
         @property method retrieve the data.
         Return the width of a rectangle
         """
-        return self.___width
+        return self.__width
 
     @property
     def height(self):
@@ -89,7 +89,7 @@ class Rectangle:
         Return the current Rectangle perimeter
         """
         if self.__width == 0 or self.__height == 0:
-            return
+            return 0
         return (self.__height + self.__width) * 2
 
     def __str__(self):
@@ -100,7 +100,7 @@ class Rectangle:
         string = ""
         if self.__height == 0:
             return string
-        if self.__width == 0:
+        elif self.__width == 0:
             return string
 
         for column in range(self.__height):
@@ -108,7 +108,6 @@ class Rectangle:
                 string += "#"
             if column != self.__height - 1:
                 string += "\n"
-
         return string
 
     def __repr__(self):
