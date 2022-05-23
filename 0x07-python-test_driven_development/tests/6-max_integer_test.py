@@ -30,3 +30,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_solo(self):
         list = [33]
         self.assertEqual(max_integer(list), 33)
+
+
+if __name__ == '__main__':
+    unittest.main()
