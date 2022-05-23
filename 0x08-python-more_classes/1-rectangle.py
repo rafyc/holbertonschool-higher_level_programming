@@ -20,9 +20,9 @@ class Rectangle:
             raise TypeError("width must be an integer")
         elif type(height) is not int:
             raise ValueError("width must be an integer")
-        elif width < 0:
+        elif width <= 0:
             raise ValueError("width must be >= 0")
-        elif height < 0:
+        elif height <= 0:
             raise ValueError("width must be >= 0")
 
         self.__width = width
