@@ -16,15 +16,6 @@ class Rectangle:
             width: size of the rectangle. Defaults to 0.
             height: height of the rectangle. Defaults to 0.
         """
-        if type(width) is not int:
-            raise TypeError("width must be an integer")
-        elif type(height) is not int:
-            raise ValueError("width must be an integer")
-        elif width < 0:
-            raise ValueError("width must be >= 0")
-        elif height < 0:
-            raise ValueError("width must be >= 0")
-
         self.__width = width
         self.__height = height
 
