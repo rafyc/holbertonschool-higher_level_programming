@@ -7,7 +7,7 @@ My name is Raphaël
 My name is Raphaël Chemouni
 
 >>> say_my_name("Raphaël",)
-My name is Raphaël
+My name is Raphaël 
 
 >>> say_my_name(("Raphaël", "Le"))
 Traceback (most recent call last):
