@@ -16,8 +16,8 @@ class Rectangle:
             width: size of the rectangle. Defaults to 0.
             height: height of the rectangle. Defaults to 0.
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -25,7 +25,7 @@ class Rectangle:
         @property method retrieve the data.
         Return the width of a rectangle
         """
-        return self.___width
+        return self.__width
 
     @property
     def height(self):
@@ -80,5 +80,5 @@ class Rectangle:
         Return the current Rectangle perimeter
         """
         if self.__width == 0 or self.__height == 0:
-            return
+            return 0
         return (self.__height + self.__width) * 2
