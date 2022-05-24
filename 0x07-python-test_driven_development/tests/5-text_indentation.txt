@@ -1,0 +1,55 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation = "Lorem ipsum. dolor ? sit amet, consectetur ? adipiscing : elit."
+>>> text_indentation(text)
+Lorem ipsum.
+<BLANKLINE>
+dolor ?
+<BLANKLINE>
+sit amet, consectetur ?
+<BLANKLINE>
+adipiscing :
+<BLANKLINE>
+elit.
+<BLANKLINE>
+
+>>> text_indentation(str("My name"))
+My name
+
+>>> text_indentation("     My name is raf. I'm student!")
+My name is raf.
+<BLANKLINE>
+I'm student!
+
+>>> text_indentation("     ")
+
+>>> text_indentation("    hello.\n     raf    ")
+hello.
+<BLANKLINE>
+<BLANKLINE>
+raf
+
+
+>>> text_indentation(5)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(555.555)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation((5, 2))
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(-5)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
