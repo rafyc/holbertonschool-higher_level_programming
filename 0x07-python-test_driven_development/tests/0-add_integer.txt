@@ -19,7 +19,9 @@ Test Numbers
 10
 >>> add_integer(5, 5.12)
 10
-
+>>> add_integer(5, fload('inf'))
+Traceback (most recent call last):
+TypeError: a must be an integer
 
 Test Strings
 ------------
