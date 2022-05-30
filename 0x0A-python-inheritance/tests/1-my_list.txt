@@ -33,6 +33,15 @@
 [-3, -2, -1, 3, 5]
 
 >>> list = MyList()
+list.append("string")
+list.append("string1")
+list.append("string2")
+>>> print(list)
+["string", "string1", "string2"]
+>>> list.print_sorted()
+["string", "string1", "string2"]
+
+>>> list = MyList()
 
 >>> list.append(x)
 Traceback (most recent call last):
@@ -46,3 +55,4 @@ NameError: name 'x' is not defined
 
 >>> list.print_sorted()
 [-3, 1, 3]
+
