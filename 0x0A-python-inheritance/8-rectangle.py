@@ -1,15 +1,25 @@
 #!/usr/bin/python3
-"""the Rectangle class"""
+"""The module define a subclass Rectangle inherits from BaseGeometry:
+    Instantiation with width and height: def __init__(self, width, height):
+        . width and height must be private. No getter or setter
+        . width and height must be positive integers, validated by
+          integer_validator"""
 
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """a class Rectangle that inherits from BaseGeometry"""
+    """The class Rectangle define:
+        * Private instance method: def __init__(self, width, height)"""
 
     def __init__(self, width, height):
-        """function that create a rectangle"""
+        """
+        The initialization method.
+        Args:
+            - __width (int, private)
+            - __height (int, private)
+        """
         self.integer_validator("width", width)
         self.__width = width
 
