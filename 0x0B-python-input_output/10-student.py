@@ -25,7 +25,8 @@ class Student:
                 if ele in self.__dict__:
                     dict_json[ele] = self.__dict__[ele]
             return dict_json
-            """return {i: self.__dict__[i] for i in attrs if i in self.__dict__}
+            """return {i: self.__dict__[i] for i in attrs if i in
+            self.__dict__}
             """
         except TypeError:
             return self.__dict__
