@@ -1,398 +1,475 @@
-# 0x0A. Python - Inheritance
+# 0x09. Python - Everything is object
 
-Learning Objectives
+### Learning Objectives
+
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
 General
-Why Python programming is awesome
-What is a superclass, baseclass or parentclass
-What is a subclass
-How to list all attributes and methods of a class or instance
-When can an instance have new attributes
-How to inherit class from another
-How to define a class with multiple base classes
-What is the default class every class inherit from
-How to override a method or attribute inherited from the base class
-Which attributes or methods are available by heritage to subclasses
-What is the purpose of inheritance
-What are, when and how to use isinstance, issubclass, type and super built-in functions
 
-Tasks 0. Lookup
-mandatory
-Write a function that returns the list of available attributes and methods of an object:
+    Why Python programming is awesome
+    What is an object
+    What is the difference between a class and an object or instance
+    What is the difference between immutable object and mutable object
+    What is a reference
+    What is an assignment
+    What is an alias
+    How to know if two variables are identical
+    How to know if two variables are linked to the same object
+    How to display the variable identifier (which is the memory address in the CPython implementation)
+    What is mutable and immutable
+    What are the built-in mutable types
+    What are the built-in immutable types
+    How does Python pass variables to functions
 
-Prototype: def lookup(obj):
-Returns a list object
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 0-main.py
-#!/usr/bin/python3
-lookup = **import**('0-lookup').lookup
+## Tasks
+### 0. Who am I?
 
-class MyClass1(object):
-pass
+What function would you use to print the type of an object?
 
-class MyClass2(object):
-my_attr1 = 3
-def my_meth(self):
-pass
-
-print(lookup(MyClass1))
-print(lookup(MyClass2))
-print(lookup(int))
-
-guillaume@ubuntu:~/0x0A$ ./0-main.py
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'my_attr1', 'my_meth']
-['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+Write the name of the function in the file, without ().
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 0-lookup.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 0-answer.txt
 
-1. My list
-   mandatory
-   Write a class MyList that inherits from list:
+### 1. Where are you?
 
-Public instance method: def print_sorted(self): that prints the list, but sorted (ascending sort)
-You can assume that all the elements of the list will be of type int
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 1-main.py
-#!/usr/bin/python3
-MyList = **import**('1-my_list').MyList
+How do you get the variable identifier (which is the memory address in the CPython implementation)?
 
-my_list = MyList()
-my_list.append(1)
-my_list.append(4)
-my_list.append(2)
-my_list.append(3)
-my_list.append(5)
-print(my_list)
-my_list.print_sorted()
-print(my_list)
+Write the name of the function in the file, without ().
 
-guillaume@ubuntu:~/0x0A$ ./1-main.py
-[1, 4, 2, 3, 5]
-[1, 2, 3, 4, 5]
-[1, 4, 2, 3, 5]
-guillaume@ubuntu:~/0x0A$
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 1-my_list.py, tests/1-my_list.txt
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 1-answer.txt
 
-2. Exact same object
-   mandatory
-   Write a function that returns True if the object is exactly an instance of the specified class ; otherwise False.
+### 2. Right count
 
-Prototype: def is_same_class(obj, a_class):
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 2-main.py
-#!/usr/bin/python3
-is_same_class = **import**('2-is_same_class').is_same_class
+In the following code, do a and b point to the same object? Answer with Yes or No.
+
+>>> a = 89
+>>> b = 100
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 2-answer.txt
+
+### 3. Right count =
+
+In the following code, do a and b point to the same object? Answer with Yes or No.
+
+>>> a = 89
+>>> b = 89
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 3-answer.txt
+
+### 4. Right count =
+
+In the following code, do a and b point to the same object? Answer with Yes or No.
+
+>>> a = 89
+>>> b = a
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 4-answer.txt
+
+### 5. Right count =+
+
+In the following code, do a and b point to the same object? Answer with Yes or No.
+
+>>> a = 89
+>>> b = a + 1
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 5-answer.txt
+
+### 6. Is equal
+
+What do these 3 lines print?
+
+>>> s1 = "Best School"
+>>> s2 = s1
+>>> print(s1 == s2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 6-answer.txt
+
+### 7. Is the same
+
+What do these 3 lines print?
+
+>>> s1 = "Best"
+>>> s2 = s1
+>>> print(s1 is s2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 7-answer.txt
+
+### 8. Is really equal
+
+What do these 3 lines print?
+
+>>> s1 = "Best School"
+>>> s2 = "Best School"
+>>> print(s1 == s2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 8-answer.txt
+
+### 9. Is really the same
+
+What do these 3 lines print?
+
+>>> s1 = "Best School"
+>>> s2 = "Best School"
+>>> print(s1 is s2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 9-answer.txt
+
+### 10. And with a list, is it equal
+
+What do these 3 lines print?
+
+>>> l1 = [1, 2, 3]
+>>> l2 = [1, 2, 3] 
+>>> print(l1 == l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 10-answer.txt
+
+### 11. And with a list, is it the same
+
+What do these 3 lines print?
+
+>>> l1 = [1, 2, 3]
+>>> l2 = [1, 2, 3] 
+>>> print(l1 is l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 11-answer.txt
+
+### 12. And with a list, is it really equal
+
+What do these 3 lines print?
+
+>>> l1 = [1, 2, 3]
+>>> l2 = l1
+>>> print(l1 == l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 12-answer.txt
+
+### 13. And with a list, is it really the same
+
+What do these 3 lines print?
+
+>>> l1 = [1, 2, 3]
+>>> l2 = l1
+>>> print(l1 is l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 13-answer.txt
+
+### 14. List append
+
+What does this script print?
+
+l1 = [1, 2, 3]
+l2 = l1
+l1.append(4)
+print(l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 14-answer.txt
+
+### 15. List add
+
+What does this script print?
+
+l1 = [1, 2, 3]
+l2 = l1
+l1 = l1 + [4]
+print(l2)
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 15-answer.txt
+
+### 16. Integer incrementation
+
+What does this script print?
+
+def increment(n):
+    n += 1
 
 a = 1
-if is_same_class(a, int):
-print("{} is an instance of the class {}".format(a, int.**name**))
-if is_same_class(a, float):
-print("{} is an instance of the class {}".format(a, float.**name**))
-if is_same_class(a, object):
-print("{} is an instance of the class {}".format(a, object.**name**))
-
-guillaume@ubuntu:~/0x0A$ ./2-main.py
-1 is an instance of the class int
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+increment(a)
+print(a)
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 2-is_same_class.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 16-answer.txt
 
-3. Same class or inherit from
-   mandatory
-   Write a function that returns True if the object is an instance of, or if the object is an instance of a class that inherited from, the specified class ; otherwise False.
+### 17. List incrementation
 
-Prototype: def is_kind_of_class(obj, a_class):
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 3-main.py
-#!/usr/bin/python3
-is_kind_of_class = **import**('3-is_kind_of_class').is_kind_of_class
+What does this script print?
 
-a = 1
-if is_kind_of_class(a, int):
-print("{} comes from {}".format(a, int.**name**))
-if is_kind_of_class(a, float):
-print("{} comes from {}".format(a, float.**name**))
-if is_kind_of_class(a, object):
-print("{} comes from {}".format(a, object.**name**))
+def increment(n):
+    n.append(4)
 
-guillaume@ubuntu:~/0x0A$ ./3-main.py
-1 comes from int
-1 comes from object
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+l = [1, 2, 3]
+increment(l)
+print(l)
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 3-is_kind_of_class.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 17-answer.txt
 
-4. Only sub class of
-   mandatory
-   Write a function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class ; otherwise False.
+### 18. List assignation
 
-Prototype: def inherits_from(obj, a_class):
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 4-main.py
-#!/usr/bin/python3
-inherits_from = **import**('4-inherits_from').inherits_from
+What does this script print?
 
-a = True
-if inherits_from(a, int):
-print("{} inherited from class {}".format(a, int.**name**))
-if inherits_from(a, bool):
-print("{} inherited from class {}".format(a, bool.**name**))
-if inherits_from(a, object):
-print("{} inherited from class {}".format(a, object.**name**))
+def assign_value(n, v):
+    n = v
 
-guillaume@ubuntu:~/0x0A$ ./4-main.py
-True inherited from class int
-True inherited from class object
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+l1 = [1, 2, 3]
+l2 = [4, 5, 6]
+assign_value(l1, l2)
+print(l1)
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 4-inherits_from.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 18-answer.txt
 
-5. Geometry module
-   mandatory
-   Write an empty class BaseGeometry.
+### 19. Copy a list object
 
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 5-main.py
+Write a function def copy_list(l): that returns a copy of a list.
+
+    The input list can contain any type of objects
+    Your file should be maximum 3-line long (no documentation needed)
+    You are not allowed to import any module
+```
+guillaume@ubuntu:~/0x09$ cat 19-main.py
 #!/usr/bin/python3
-BaseGeometry = **import**('5-base_geometry').BaseGeometry
+copy_list = __import__('19-copy_list').copy_list
 
-bg = BaseGeometry()
+my_list = [1, 2, 3]
+print(my_list)
 
-print(bg)
-print(dir(bg))
-print(dir(BaseGeometry))
+new_list = copy_list(my_list)
 
-guillaume@ubuntu:~/0x0A$ ./5-main.py
-<5-base_geometry.BaseGeometry object at 0x7f2050c69208>
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
-['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+print(my_list)
+print(new_list)
+
+print(new_list == my_list)
+print(new_list is my_list)
+
+guillaume@ubuntu:~/0x09$ ./19-main.py
+[1, 2, 3]
+[1, 2, 3]
+[1, 2, 3]
+True
+False
+guillaume@ubuntu:~/0x09$ wc -l 19-copy_list.py 
+3 19-copy_list.py
+guillaume@ubuntu:~/0x09$ 
+```
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 5-base_geometry.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 19-copy_list.py
 
-6. Improve Geometry
-   mandatory
-   Write a class BaseGeometry (based on 5-base_geometry.py).
+### 20. Tuple or not?
 
-Public instance method: def area(self): that raises an Exception with the message area() is not implemented
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 6-main.py
-#!/usr/bin/python3
-BaseGeometry = **import**('6-base_geometry').BaseGeometry
+a = ()
 
-bg = BaseGeometry()
-
-try:
-print(bg.area())
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-guillaume@ubuntu:~/0x0A$ ./6-main.py
-[Exception] area() is not implemented
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+Is a a tuple? Answer with Yes or No.
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 6-base_geometry.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 20-answer.txt
 
-7. Integer validator
-   mandatory
-   Write a class BaseGeometry (based on 6-base_geometry.py).
+### 21. Tuple or not?
 
-Public instance method: def area(self): that raises an Exception with the message area() is not implemented
-Public instance method: def integer_validator(self, name, value): that validates value:
-you can assume name is always a string
-if value is not an integer: raise a TypeError exception, with the message <name> must be an integer
-if value is less or equal to 0: raise a ValueError exception with the message <name> must be greater than 0
-You are not allowed to import any module
-guillaume@ubuntu:~/0x0A$ cat 7-main.py
-#!/usr/bin/python3
-BaseGeometry = **import**('7-base_geometry').BaseGeometry
+a = (1, 2)
 
-bg = BaseGeometry()
-
-bg.integer_validator("my_int", 12)
-bg.integer_validator("width", 89)
-
-try:
-bg.integer_validator("name", "John")
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-try:
-bg.integer_validator("age", 0)
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-try:
-bg.integer_validator("distance", -4)
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-guillaume@ubuntu:~/0x0A$ ./7-main.py
-[TypeError] name must be an integer
-[ValueError] age must be greater than 0
-[ValueError] distance must be greater than 0
-guillaume@ubuntu:~/0x0A$
-Repo:
-
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 7-base_geometry.py, tests/7-base_geometry.txt
-
-8. Rectangle
-   mandatory
-   Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py).
-
-Instantiation with width and height: def **init**(self, width, height):
-width and height must be private. No getter or setter
-width and height must be positive integers, validated by integer_validator
-guillaume@ubuntu:~/0x0A$ cat 8-main.py
-#!/usr/bin/python3
-Rectangle = **import**('8-rectangle').Rectangle
-
-r = Rectangle(3, 5)
-
-print(r)
-print(dir(r))
-
-try:
-print("Rectangle: {} - {}".format(r.width, r.height))
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-try:
-r2 = Rectangle(4, True)
-except Exception as e:
-print("[{}] {}".format(e.**class**.**name**, e))
-
-guillaume@ubuntu:~/0x0A$ ./8-main.py
-<8-rectangle.Rectangle object at 0x7f6f488f7eb8>
-['_Rectangle__height', '_Rectangle__width', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'area', 'integer_validator']
-[AttributeError] 'Rectangle' object has no attribute 'width'
-[TypeError] height must be an integer
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+Is a a tuple? Answer with Yes or No.
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 8-rectangle.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 21-answer.txt
 
-9. Full rectangle
-   mandatory
-   Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py). (task based on 8-rectangle.py)
+### 22. Tuple or not?
 
-Instantiation with width and height: def **init**(self, width, height)::
-width and height must be private. No getter or setter
-width and height must be positive integers validated by integer_validator
-the area() method must be implemented
-print() should print, and str() should return, the following rectangle description: [Rectangle] <width>/<height>
-guillaume@ubuntu:~/0x0A$ cat 9-main.py
-#!/usr/bin/python3
-Rectangle = **import**('9-rectangle').Rectangle
+a = (1)
 
-r = Rectangle(3, 5)
-
-print(r)
-print(r.area())
-
-guillaume@ubuntu:~/0x0A$ ./9-main.py
-[Rectangle] 3/5
-15
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+Is a a tuple? Answer with Yes or No.
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 9-rectangle.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 22-answer.txt
 
-10. Square #1
-    mandatory
-    Write a class Square that inherits from Rectangle (9-rectangle.py):
+### 23. Tuple or not?
 
-Instantiation with size: def **init**(self, size)::
-size must be private. No getter or setter
-size must be a positive integer, validated by integer_validator
-the area() method must be implemented
-guillaume@ubuntu:~/0x0A$ cat 10-main.py
-#!/usr/bin/python3
-Square = **import**('10-square').Square
+a = (1, )
 
-s = Square(13)
-
-print(s)
-print(s.area())
-
-guillaume@ubuntu:~/0x0A$ ./10-main.py
-[Rectangle] 13/13
-169
-guillaume@ubuntu:~/0x0A$
-No test cases needed
+Is a a tuple? Answer with Yes or No.
 
 Repo:
 
-GitHub repository: holbertonschool-higher_level_programming
-Directory: 0x0A-python-inheritance
-File: 10-square.py
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 23-answer.txt
 
-11. Square #2
-    mandatory
-    Write a class Square that inherits from Rectangle (9-rectangle.py). (task based on 10-square.py).
+### 24. Who I am?
 
-Instantiation with size: def **init**(self, size)::
-size must be private. No getter or setter
-size must be a positive integer, validated by integer_validator
-the area() method must be implemented
-print() should print, and str() should return, the square description: [Square] <width>/<height>
-guillaume@ubuntu:~/0x0A$ cat 11-main.py
-#!/usr/bin/python3
-Square = **import**('11-square').Square
+What does this script print?
 
-s = Square(13)
+a = (1)
+b = (1)
+a is b
 
-print(s)
-print(s.area())
+Repo:
 
-guillaume@ubuntu:~/0x0A$ ./11-main.py
-[Square] 13/13
-169
-guillaume@ubuntu:~/0x0A$
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 24-answer.txt
+
+### 25. Tuple or not
+
+What does this script print?
+
+a = (1, 2)
+b = (1, 2)
+a is b
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 25-answer.txt
+
+### 26. Empty is not empty
+
+What does this script print?
+
+a = ()
+b = ()
+a is b
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 26-answer.txt
+
+### 27. Still the same?
+
+>>> id(a)
+139926795932424
+>>> a
+[1, 2, 3, 4]
+>>> a = a + [5]
+>>> id(a)
+
+Will the last line of this script print 139926795932424? Answer with Yes or No.
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 27-answer.txt
+
+### 28. Same or not?
+
+>>> a
+[1, 2, 3]
+>>> id (a)
+139926795932424
+>>> a += [4]
+>>> id(a)
+
+Will the last line of this script print 139926795932424? Answer with Yes or No.
+
+Repo:
+
+    GitHub repository: holbertonschool-higher_level_programming
+    Directory: 0x09-python-everything_is_object
+    File: 28-answer.txt
+
+### 29. Python3: Mutable, Immutable... everything is object!
+
+Write a blog post about everything you just learned / this project is covering. Your blog post should be articulated this way (one paragraph per item):
+
+    introduction
+    id and type
+    mutable objects
+    immutable objects
+    why does it matter and how differently does Python treat mutable and immutable objects
+    how arguments are passed to functions and what does that imply for mutable and immutable objects
+
+If you worked on advanced tasks, please also include what you did learn in those tasks in the blog post.
+
+Your posts should have many code/output examples to illustrate what you are explaining, and at least one picture, at the top. Publish your blog post on Medium or LinkedIn, and share it at least on LinkedIn.
+
+When done, please add all urls below (blog post, LinkedIn post, etc.)
+
+Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
