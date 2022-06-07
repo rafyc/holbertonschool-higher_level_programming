@@ -3,7 +3,6 @@
     Unittest for Rectangle
 """
 
-from distutils.util import run_2to3
 import unittest
 from models import rectangle
 Rectangle = rectangle.Rectangle
