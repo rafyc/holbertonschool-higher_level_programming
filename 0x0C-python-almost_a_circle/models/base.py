@@ -39,7 +39,7 @@ class Base:
         """
         myfile = f"{cls.__name__}.json"
         with open(myfile, 'w', encoding="utf_8") as a:
-            if list_objs is None:
+            if list_objs is None or len(list_objs) == 0:
                 return a.write(cls.to_json_string(None))
             mylist = []
             for elements in list_objs:
@@ -59,22 +59,18 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-    @classmethod
-    def load_from_file(cls):
-        """_summary_
-        """
-
     @staticmethod
     def from_json_string(json_string):
         """ returns the list of the JSON string representation
         """
-        if json_string is None:
+        if json_string is None or len(json_string) == 0:
             return []
         else:
             return json.loads(json_string)
 
     @classmethod
     def load_from_file(cls):
+        liste = []
         filename = f"{cls.__name__}.json"
         if os.path.exists(filename) is False:
             return []
