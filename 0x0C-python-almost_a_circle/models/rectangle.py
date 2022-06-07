@@ -22,22 +22,22 @@ class Rectangle(Base):
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:
-            raise valError("width must be > 0")
+            raise ValueError("width must be > 0")
 
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if height <= 0:
-            raise valError("height must be > 0")
+            raise ValueError("height must be > 0")
 
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
         if x < 0:
-            raise valError("x must be >= 0")
+            raise ValueError("x must be >= 0")
 
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
         if y < 0:
-            raise valError("y must be >= 0")
+            raise ValueError("y must be >= 0")
 
         self.__width = width
         self.__height = height
@@ -88,7 +88,7 @@ class Rectangle(Base):
         if not isinstance(val, int):
             raise TypeError("width must be an integer")
         if val <= 0:
-            raise valError("width must be > 0")
+            raise ValueError("width must be > 0")
         self.__width = val
 
     @height.setter
@@ -102,7 +102,7 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("height must be an integer")
         elif val <= 0:
-            raise valError("height must be > 0")
+            raise ValueError("height must be > 0")
         self.__height = val
 
     @ x.setter
@@ -115,7 +115,7 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("x must be an integer")
         elif val < 0:
-            raise valError("x must be >= 0")
+            raise ValueError("x must be >= 0")
 
         self.__x = val
 
@@ -129,7 +129,7 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("y must be an integer")
         elif val < 0:
-            raise valError("y must be >= 0")
+            raise ValueError("y must be >= 0")
         self.__y = val
 
     def area(self):
