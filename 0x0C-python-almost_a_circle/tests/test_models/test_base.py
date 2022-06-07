@@ -151,9 +151,6 @@ class TestSquareSize(unittest.TestCase):
             os.remove("Base.json")
         lst = Rectangle.load_from_file()
         self.assertEqual(lst, [])
-        os.mknod("Rectangle.json")
-        lst = Rectangle.load_from_file()
-        self.assertEqual(lst, [])
 
     def test_load_rectangle(self):
         """Test for loading a list of rectangles"""

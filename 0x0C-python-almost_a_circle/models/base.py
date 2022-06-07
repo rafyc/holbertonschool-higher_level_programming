@@ -5,6 +5,7 @@ in all future classes and avoid duplicating the same code.
 
 
 import json
+import os
 
 
 class Base:
@@ -71,3 +72,14 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def load_from_file(cls):
+        filename = f"{cls.__name__}.json"
+        if os.path.exists(filename) is False:
+            return []
+        with open(filename, "r") as file:
+            liste = cls.from_json_string(file.read())
+            for i in range(len(liste)):
+                liste[i] = cls.create(**liste[i])
+        return liste
