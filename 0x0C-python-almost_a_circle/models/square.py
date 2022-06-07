@@ -53,9 +53,9 @@ class Square(Rectangle):
                     self.id = value
                 elif i == 1:
                     self.size = value
-                elif i == 3:
+                elif i == 2:
                     self.x == value
-                elif i == 4:
+                elif i == 3:
                     self.y == value
         else:
             if "id" in kwargs:
