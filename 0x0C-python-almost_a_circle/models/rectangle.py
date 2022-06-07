@@ -188,9 +188,9 @@ class Rectangle(Base):
             if "height" in kwargs:
                 self.height = kwargs["height"]
             if "y" in kwargs:
-                self.x = kwargs["y"]
+                self.y = kwargs["y"]
             if "x" in kwargs:
-                self.y = kwargs["x"]
+                self.x = kwargs["x"]
 
     def to_dictionary(self):
         """public method def to_dictionary(self): that returns
