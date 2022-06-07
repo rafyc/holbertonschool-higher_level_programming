@@ -78,7 +78,7 @@ class Rectangle(Base):
         Args:
         - value (int): the width of the rectangle, must be an integer
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
