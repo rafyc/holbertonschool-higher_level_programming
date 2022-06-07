@@ -22,22 +22,22 @@ class Rectangle(Base):
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:
-            raise ValueError("width must be > 0")
+            raise valError("width must be > 0")
 
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if height <= 0:
-            raise ValueError("height must be > 0")
+            raise valError("height must be > 0")
 
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
         if x < 0:
-            raise ValueError("x must be >= 0")
+            raise valError("x must be >= 0")
 
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
         if y < 0:
-            raise ValueError("y must be >= 0")
+            raise valError("y must be >= 0")
 
         self.__width = width
         self.__height = height
@@ -78,59 +78,59 @@ class Rectangle(Base):
         return self.__y
 
     @width.setter
-    def width(self, value):
+    def width(self, val):
         """
 
         @width.setter method change the data.
         Args:
-        - value (int): the width of the rectangle, must be an integer
+        - val (int): the width of the rectangle, must be an integer
         """
-        if not isinstance(value, int):
+        if not isinstance(val, int):
             raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
+        if val <= 0:
+            raise valError("width must be > 0")
+        self.__width = val
 
     @height.setter
-    def height(self, value):
+    def height(self, val):
         """
 
         @height.setter method change the data.
         Args:
-        - value (int): the height of the rectangle, must be an integer
+        - val (int): the height of the rectangle, must be an integer
         """
-        if type(value) is not int:
+        if type(val) is not int:
             raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
+        elif val <= 0:
+            raise valError("height must be > 0")
+        self.__height = val
 
     @ x.setter
-    def x(self, value):
+    def x(self, val):
         """
         @x.setter method change the data.
         Args:
-        - value (int): the x of the rectangle, must be an integer
+        - val (int): the x of the rectangle, must be an integer
         """
-        if type(value) is not int:
+        if type(val) is not int:
             raise TypeError("x must be an integer")
-        elif value < 0:
-            raise ValueError("x must be >= 0")
+        elif val < 0:
+            raise valError("x must be >= 0")
 
-        self.__x = value
+        self.__x = val
 
     @ y.setter
-    def y(self, value):
+    def y(self, val):
         """
         @y.setter method change the data.
         Args:
-        - value (int): the y of the rectangle, must be an integer
+        - val (int): the y of the rectangle, must be an integer
         """
-        if type(value) is not int:
+        if type(val) is not int:
             raise TypeError("y must be an integer")
-        elif value < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = value
+        elif val < 0:
+            raise valError("y must be >= 0")
+        self.__y = val
 
     def area(self):
         """
@@ -165,21 +165,20 @@ class Rectangle(Base):
         return f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
 
     def update(self, *args, **kwargs):
-        """Update the class Rectangle by adding the public method
-        def update that assigns an argument to each attribute:
-        """
+        """function that assigns an argument to each attribute"""
         if len(args) != 0:
-            for i, value in enumerate(args):
+            for i, arg in enumerate(args):
                 if i == 0:
-                    self.id = value
+                    self.id = arg
                 elif i == 1:
-                    self.width = value
+                    self.width = arg
                 elif i == 2:
-                    self.height = value
+                    self.height = arg
                 elif i == 3:
-                    self.x == value
+                    self.x = arg
                 elif i == 4:
-                    self.y == value
+                    self.y = arg
+
         else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
