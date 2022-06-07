@@ -20,7 +20,7 @@ class Square(Rectangle):
         The instance method that returns an 'informal' and nicely printable
         string representation of an instance.
         """
-        return f"[square] ({self.id}) {self.x}/{self.y} - {self.width}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
