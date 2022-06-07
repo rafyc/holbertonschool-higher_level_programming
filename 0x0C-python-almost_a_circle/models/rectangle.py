@@ -168,7 +168,7 @@ class Rectangle(Base):
         """Update the class Rectangle by adding the public method
         def update that assigns an argument to each attribute:
         """
-        if args is not None and len(args) != 0:
+        if len(args) != 0:
             for i, value in enumerate(args):
                 if i == 0:
                     self.id = value
