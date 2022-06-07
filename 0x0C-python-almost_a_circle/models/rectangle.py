@@ -165,20 +165,21 @@ class Rectangle(Base):
         return f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
 
     def update(self, *args, **kwargs):
-        """function that assigns an argument to each attribute"""
+        """Update the class Rectangle by adding the public method
+        def update that assigns an argument to each attribute:
+        """
         if len(args) != 0:
-            for i, arg in enumerate(args):
+            for i, value in enumerate(args):
                 if i == 0:
-                    self.id = arg
+                    self.id = value
                 elif i == 1:
-                    self.width = arg
+                    self.__width = value
                 elif i == 2:
-                    self.height = arg
+                    self.__height = value
                 elif i == 3:
-                    self.x = arg
+                    self.__x == value
                 elif i == 4:
-                    self.y = arg
-
+                    self.__y == value
         else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
@@ -187,9 +188,9 @@ class Rectangle(Base):
             if "height" in kwargs:
                 self.height = kwargs["height"]
             if "y" in kwargs:
-                self.y = kwargs["y"]
+                self.x = kwargs["y"]
             if "x" in kwargs:
-                self.x = kwargs["x"]
+                self.y = kwargs["x"]
 
     def to_dictionary(self):
         """public method def to_dictionary(self): that returns
