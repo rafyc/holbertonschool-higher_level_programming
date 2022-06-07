@@ -126,7 +126,7 @@ class Rectangle(Base):
         Args:
         - val (int): the y of the rectangle, must be an integer
         """
-        if type(val) is not int:
+        if not isinstance(val, int):
             raise TypeError("y must be an integer")
         elif val < 0:
             raise ValueError("y must be >= 0")

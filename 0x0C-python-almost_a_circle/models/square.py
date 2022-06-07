@@ -44,28 +44,16 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Update the class square by adding the public method
-        def update that assigns an argument to each attribute:
-        """
+        """function that assigns an argument to each attribute"""
+        attr = ['id', 'size', 'x', 'y']
         if len(args) != 0:
-            for i, value in enumerate(args):
-                if i == 0:
-                    self.id = value
-                elif i == 1:
-                    self.size = value
-                elif i == 2:
-                    self.x == value
-                elif i == 3:
-                    self.y == value
+            for i, arg in enumerate(args):
+                if i != 4:
+                    setattr(self, attr[i], arg)
         else:
-            if "id" in kwargs:
-                self.id = kwargs["id"]
-            if "size" in kwargs:
-                self.size = kwargs["size"]
-            if "x" in kwargs:
-                self.x = kwargs["x"]
-            if "y" in kwargs:
-                self.y = kwargs["y"]
+            for key in kwargs:
+                if key in attr:
+                    setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """public method def to_dictionary(self): that returns

@@ -1,62 +1,98 @@
 #!/usr/bin/python3
 """
-    Unittest for Base
+Add unit test for the class Base
 """
 
+
 import unittest
+import os
 import pycodestyle
-from models import base
-from models.rectangle import Rectangle
+from models.base import Base
 from models.square import Square
-Base = base.Base
+from models.rectangle import Rectangle
 
 
-class TestBase_comments(unittest.TestCase):
-    """
-        test for comments for base rectangle and square files
-    """
+class TestBase_save_to_file(unittest.TestCase):
+    """Unittests for testing save_to_file method of Base class."""
 
-    def test_conformance_1(self):
-        """
-            Test that we conform to PEP-8 for Base
-        """
-        style = pycodestyle.StyleGuide(quiet=True)
-        result = style.check_files(['models/base.py'])
-        self.assertEqual(result.total_errors, 0)
+    def test_save_one_rectangle(self):
+        rect = Rectangle(10, 7, 2, 8, 5)
+        Rectangle.save_to_file([rect])
+        with open("Rectangle.json", "r") as file:
+            self.assertTrue(len(file.read()) == 53)
+
+    def test_save_two_rectangles(self):
+        rect1 = Rectangle(10, 7, 2, 8, 5)
+        rect2 = Rectangle(2, 4, 1, 2, 3)
+        Rectangle.save_to_file([rect1, rect2])
+        with open("Rectangle.json", "r") as file:
+            self.assertTrue(len(file.read()) == 105)
+
+    def test_save_one_square(self):
+        square = Square(10, 7, 2, 8)
+        Square.save_to_file([square])
+        with open("Square.json", "r") as file:
+            self.assertTrue(len(file.read()) == 39)
+
+    def test_save_two_squares(self):
+        square1 = Square(10, 7, 2, 8)
+        square2 = Square(8, 1, 2, 3)
+        Square.save_to_file([square1, square2])
+        with open("Square.json", "r") as file:
+            self.assertTrue(len(file.read()) == 77)
+
+    def test_save_cls_name_for_filename(self):
+        square = Square(10, 7, 2, 8)
+        Base.save_to_file([square])
+        with open("Base.json", "r") as file:
+            self.assertTrue(len(file.read()) == 39)
+
+    def test_save_overwrite(self):
+        square = Square(8, 5, 9, 2)
+        Square.save_to_file([square])
+        square = Square(10, 7, 2, 8)
+        Square.save_to_file([square])
+        with open("Square.json", "r") as file:
+            self.assertTrue(len(file.read()) == 39)
+
+    def test_save_empty_list(self):
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_save_no_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+    def test_save_two_arg(self):
+        with self.assertRaises(TypeError):
+            Square.save_to_file([], 1)
 
 
-class TestBase(unittest.TestCase):
-    """
-        test for Base
-    """
+class Test_Base_Create(unittest.TestCase):
+    """class test of the create base function"""
 
-    def setUp(self):
-        """
-            reset id
-        """
-        Base._Base__nb_objects = 0
+    def test_rectangle_create(self):
+        """test rectangle creation"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertIsNot(r1, r2)
+        self.assertNotEqual(r1, r2)
 
-    def test_creation_id(self):
-        """
-            test if value of id has the good assignment
-        """
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        b4 = Base(12)
-        b5 = Base(-5)
-        b6 = Base(6.3)
-        b7 = Base()
-        b8 = Base(None)
+    def test_square_create(self):
+        """test square creation"""
+        r1 = Square(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Square.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertIsNot(r1, r2)
+        self.assertNotEqual(r1, r2)
 
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
-        self.assertEqual(b4.id, 12)
-        self.assertEqual(b5.id, -5)
-        self.assertEqual(b6.id, 6.3)
-        self.assertEqual(b7.id, 4)
-        self.assertEqual(b8.id, 5)
+
+class Test_Base_Init(unittest.TestCase):
+    """class test of the init base function"""
 
     def test_id_int(self):
         """Test integer id"""
@@ -102,10 +138,63 @@ class TestBase(unittest.TestCase):
             b = Base(1, None)
 
 
+class TestSquareSize(unittest.TestCase):
+    """ tests for load_from_file of base.py """
+
+    def test_load_empty_file(self):
+        """Tests for non existant and empty file"""
+        if (os.path.exists("Rectangle.json") is True):
+            os.remove("Rectangle.json")
+        if (os.path.exists("Square.json") is True):
+            os.remove("Square.json")
+        if (os.path.exists("Base.json") is True):
+            os.remove("Base.json")
+        lst = Rectangle.load_from_file()
+        self.assertEqual(lst, [])
+        os.mknod("Rectangle.json")
+        lst = Rectangle.load_from_file()
+        self.assertEqual(lst, [])
+
+    def test_load_rectangle(self):
+        """Test for loading a list of rectangles"""
+        rect_a = Rectangle(2, 4)
+        rect_b = Rectangle(1, 1)
+        rect_c = Rectangle(6, 6)
+        my_list = [rect_a, rect_b, rect_c]
+        Rectangle.save_to_file([rect_a, rect_b, rect_c])
+        my_list_loaded = Rectangle.load_from_file()
+        self.assertEqual(type(my_list), type(my_list_loaded))
+        self.assertEqual(len(my_list), len(my_list_loaded))
+        for i in range(len(my_list)):
+            self.assertEqual(type(my_list_loaded[i]), type(my_list[i]))
+            self.assertEqual(my_list[i].to_dictionary(),
+                             my_list_loaded[i].to_dictionary())
+        os.remove("Rectangle.json")
+
+    def test_load_square(self):
+        """Test for loading a list of squares"""
+        rect_a = Square(2)
+        rect_b = Square(1)
+        rect_c = Square(6)
+        my_list = [rect_a, rect_b, rect_c]
+        Square.save_to_file([rect_a, rect_b, rect_c])
+        my_list_loaded = Square.load_from_file()
+        self.assertEqual(type(my_list), type(my_list_loaded))
+        self.assertEqual(len(my_list), len(my_list_loaded))
+        for i in range(len(my_list)):
+            self.assertEqual(type(my_list_loaded[i]), type(my_list[i]))
+            self.assertEqual(my_list[i].to_dictionary(),
+                             my_list_loaded[i].to_dictionary())
+        os.remove("Square.json")
+
+    def test_extra_args(self):
+        """Test calling the function with an additional argument"""
+        with self.assertRaises(TypeError):
+            Base.load_from_file("Hello")
+
+
 class TestToJsonString(unittest.TestCase):
-    """
-    Unittest for to_json_string
-    """
+    """Unittest for to_json_string"""
 
     def test_rectangle_to_str(self):
         """True if to_json_string return str type"""
@@ -184,6 +273,42 @@ class TestToJsonString(unittest.TestCase):
         """Test if more undefined parameters"""
         with self.assertRaises(TypeError):
             Base.to_json_string([], 3600)
+
+
+class TestBase(unittest.TestCase):
+    """
+        test for Base
+    """
+
+    def test_creation_id(self):
+        """
+            test if value of id has the good assignment
+        """
+        b1 = Base()
+        b2 = Base()
+        b3 = Base()
+        b4 = Base(12)
+        b5 = Base(-5)
+        b6 = Base(6.3)
+        b7 = Base()
+        b8 = Base(None)
+
+        self.assertEqual(b1.id, 1)
+        self.assertEqual(b2.id, 2)
+        self.assertEqual(b3.id, 3)
+        self.assertEqual(b4.id, 12)
+        self.assertEqual(b5.id, -5)
+        self.assertEqual(b6.id, 6.3)
+        self.assertEqual(b7.id, 4)
+        self.assertEqual(b8.id, 5)
+
+    def test_to_json_string(self):
+        json_string = Base.to_json_string(None)
+        self.assertEqual(json_string, '[]')
+
+    def test_from_json_string(self):
+        json_string = Base.from_json_string(None)
+        self.assertEqual(json_string, [])
 
 
 if __name__ == '__main__':
