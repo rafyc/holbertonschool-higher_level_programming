@@ -19,18 +19,25 @@ class Rectangle(Base):
             y (int): _description_. Defaults to 0.
             id (_type_): id of the object. Defaults to None.
         """
-        if type(height) is not int:
-            raise TypeError("width must be an integer")
-        if height <= 0:
-            raise ValueError("height must be > 0")
-        if type(width) is not int:
+        if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
+
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
+
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
         if x < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("x must be >= 0")
+
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
         if y < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("y must be >= 0")
 
         self.__width = width
         self.__height = height
