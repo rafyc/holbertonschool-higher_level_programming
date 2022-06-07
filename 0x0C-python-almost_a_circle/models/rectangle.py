@@ -150,7 +150,8 @@ class Rectangle(Base):
         string representation of an instance.
         """
         return(
-            f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}")
+            f"[Rectangle] ({self.id}) {self.__x}/{self.__y} -\
+                {self.__width}/{self.__height}")
 
     def update(self, *args, **kwargs):
         """Update the class Rectangle by adding the public method
