@@ -157,9 +157,12 @@ class Rectangle(Base):
         The instance method that returns an 'informal' and nicely printable
         string representation of an instance.
         """
-        return(
-            f"[Rectangle] ({self.id}) {self.__x}/{self.__y} -\
-                {self.__width}/{self.__height}")
+        id = self.id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
+        return f"[Rectangle] ({id}) {x}/{y} - {w}/{h}"
 
     def update(self, *args, **kwargs):
         """Update the class Rectangle by adding the public method
