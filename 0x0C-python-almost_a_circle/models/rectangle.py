@@ -190,6 +190,20 @@ class Rectangle(Base):
                 self.y = kwargs["y"]
             if "x" in kwargs:
                 self.x = kwargs["x"]
+                
+         """ Other Python method :
+         
+         def update(self, *args, **kwargs):
+            attr = ['id', 'width', 'height', 'x', 'y']
+            if len(args) != 0:
+                for i, arg in enumerate(args):
+                    if i != 5:
+                        setattr(self, attr[i], arg)
+        else:
+            for key in kwargs:
+                if key in attr:
+                    setattr(self, key, kwargs[key])
+        """
 
     def to_dictionary(self):
         """public method def to_dictionary(self): that returns
