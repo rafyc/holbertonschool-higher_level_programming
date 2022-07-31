@@ -1,7 +1,8 @@
 #!/usr/local/bin/node
 
+let i = 0;
+
 exports.logMe = function (item) {
- /* for (let i = 0; i > item.length; i++) {
-    return (i + ": " + item);
-  */
+  console.log(`${i}: ${item}`);
+  i += 1;
 };
