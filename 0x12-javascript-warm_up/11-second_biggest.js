@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 
 if (process.argv.length < 4) {
   console.log(0);
