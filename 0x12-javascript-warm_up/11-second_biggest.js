@@ -1,10 +1,10 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 if (process.argv.length < 4) {
   console.log(0);
 } else {
   const myNum = [];
   for (let i = 2; i < process.argv.length; i++) {
-    if (!isNaN(process.argv[i])) myNum.push(process.argv[i]);
+    myNum.push(parseInt(process.argv[i]));
   }
 
   myNum.sort((a, b) => a - b);
