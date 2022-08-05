@@ -13,11 +13,11 @@ if __name__ == '__main__':
     db= argv[3]
     )
   cur = db.cursor()
-  cur.execute("SELECT * FROM states ORDER BY id")
+  cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id", (argv[4],))
 
   rows = cur.fetchall()
   for row in rows:
-      if row[1][0] == 'N':
+      if row[1] == argv[4]:
          print(row)
   cur.close()
   db.close()
