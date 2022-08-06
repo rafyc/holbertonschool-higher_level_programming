@@ -7,11 +7,11 @@ if __name__ == "__main__":
 
     db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                                  passwd=argv[2], db=argv[3], charset="utf8")
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    query_rows = cursor.fetchall()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cur.fetchall()
     for row in rows:
         if row[1][0] == 'N':
             print(row)
-    cursor.close()
+    cur.close()
     db.close()
