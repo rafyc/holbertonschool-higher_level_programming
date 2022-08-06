@@ -2,6 +2,7 @@
 """Script that takes in an argument and displays all values in the states
  table of hbtn_0e_0_usa where name matches the argument"""
 
+
 if __name__ == '__main__':
 
     import MySQLdb
@@ -16,8 +17,7 @@ if __name__ == '__main__':
       charset="utf8"
       )
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id")
-
+    cur.execute(f"SELECT * FROM states WHERE name = '{argv[4]}' ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
         if row[1] == argv[4]:
