@@ -1,24 +1,19 @@
 #!/usr/bin/python3
-"""
-lists all cities from the database hbtn_0e_0_usa
-fix injection
-Arguments:
-    mysql username sys.argv[1]
-    mysql password sys.argv[2]
-    database name sys.argv[3]
-"""
-
-import sys
-import MySQLdb
+"""Script that takes in an argument and displays all values in the states
+ table of hbtn_0e_0_usa where name matches the argument"""
 
 if __name__ == '__main__':
+    import MySQLdb
+    from sys import argv
+
     db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
-        )
+      host='localhost',
+      port=3306,
+      user=argv[1],
+      passwd=argv[2],
+      db=argv[3],
+      charset="utf8"
+      )
     curs = db.cursor()
     curs.execute(
         """
