@@ -3,24 +3,19 @@
  table of hbtn_0e_0_usa where name matches the argument"""
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     import MySQLdb
     from sys import argv
 
-    db = MySQLdb.connect(
-      host='localhost',
-      port=3306,
-      user=argv[1],
-      passwd=argv[2],
-      db=argv[3],
-      charset="utf8"
-      )
-    cur = db.cursor()
-    cur.execute(f"SELECT * FROM states WHERE name = '{argv[4]}' ORDER BY id ASC")
-    rows = cur.fetchall()
-    for row in rows:
+    connection = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                                 passwd=argv[2], db=argv[3], charset="utf8")
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * FROM states WHERE name = '{argv[4]}'\
+        ORDER BY id ASC")
+
+    query_rows = cursor.fetchall()
+    for row in query_rows:
         if row[1] == argv[4]:
             print(row)
-    cur.close()
-    db.close()
+    cursor.close()
+    connection.close()
