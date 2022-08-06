@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """class definition of a State and instance
  Base = declarative_base()"""
 
