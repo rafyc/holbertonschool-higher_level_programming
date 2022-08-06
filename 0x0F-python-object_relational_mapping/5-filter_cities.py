@@ -1,6 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Script that takes in an argument and displays all values in the states
  table of hbtn_0e_0_usa where name matches the argument"""
+
+
+from array import array
+
 
 if __name__ == '__main__':
     import MySQLdb
@@ -21,7 +25,7 @@ if __name__ == '__main__':
         ON cities.state_id = states.id WHERE states.name = %s\
         ORDER BY cities.id\
         ", (argv[4],))
-    for row in curs.fetchall():
-        print(row)
+    array = [row[0] for row in curs.fetchall()]
+    print(", ".join(array))
     curs.close()
     db.close()
