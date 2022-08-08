@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Start link class to table in database
 """
 
@@ -14,11 +14,11 @@ if __name__ == '__main__':
         argv[3],
         pool_pre_ping=True
         ))
+    session = Session(engine)
     Base.metadata.create_all(engine)
 
-    session = Session(engine)
-    myvar = session.query(State).all().order_by(State.id)\
-        .filter(State.name.like("%a%"))
+    myvar = session.query(State).order_by(State.id).\
+        filter(State.name.like("%a%")).all()
     for elements in myvar:
-        print(f"{myvar.id}: {myvar.name}")
+        print(f"{elements.id}: {elements.name}")
     session.close()
