@@ -9,7 +9,8 @@ from urllib.request import urlopen
 from sys import argv
 
 if __name__ == '__main__':
-    data = parse.urlencode({"email": argv[2]}).encode('ascii')
+    data = parse.urlencode({"email": argv[2]})
+    data = data.encode('ascii')
     req =  request.Request(argv[1], data)
     with urlopen(req) as response:
         html = response.read().decode('utf-8')
