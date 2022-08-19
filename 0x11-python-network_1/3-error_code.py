@@ -11,4 +11,4 @@ if __name__ == '__main__':
             print(response.read())
     except HTTPError as e:
         status_code = e.response.status_code
-        print(f'Error code: {status_code}')
+    print(f'Error code: {status_code}')
