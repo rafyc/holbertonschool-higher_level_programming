@@ -21,7 +21,7 @@ if __name__ == '__main__':
         if len(my_dict) == 0:
             print("No result")
         else:
-            print("{} {}".format(my_dict['id'], my_dict['name']))
+            print("[{}] {}".format(my_dict['id'], my_dict['name']))
     except ValueError:
         print('Not a valid JSON')
 
