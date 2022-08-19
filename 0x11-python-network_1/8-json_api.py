@@ -12,10 +12,10 @@ if __name__ == '__main__':
 
     url = "http://0.0.0.0:5000/search_user"
 
-    if argv[1]:
-        myobj = {'q': argv[1]}
-    else:
+    if len(argv) == 1:
         myobj = {'q': ""}
+    else:
+        myobj = {'q': argv[1]}
 
     req = requests.post(url, data=myobj)
 
