@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Write a Python script that takes in a letter and sends a POST request
 with the letter as a parameter.
 """
