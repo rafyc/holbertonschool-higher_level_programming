@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     try:
         my_dict = req.json()
-        if len(req) == 0:
+        if len(my_dict) == 0:
             print("No result")
         else:
             print(my_dict['id'])
