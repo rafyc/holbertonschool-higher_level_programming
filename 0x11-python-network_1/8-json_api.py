@@ -3,12 +3,20 @@
 with the letter as a parameter.
 """
 
-from urllib import request, parse
-from urllib.request import urlopen
-from sys import argv
+from ast import arg
+
 
 if __name__ == '__main__':
-    data = parse.urlencode({"email": argv[2]})
-    data = data.encode('ascii')
-    with urlopen(argv[1], data) as response:
-        print(response.read().decode('utf-8'))
+    import requests
+    from sys import argv
+
+    url = "http://0.0.0.0:5000/search_user"
+
+    if argv[1]:
+        myobj = {'q': argv[1]}
+    else:
+        myobj = {'q': ""}
+
+    req = requests.post(url, data=myobj)
+
+    print(req.text)
