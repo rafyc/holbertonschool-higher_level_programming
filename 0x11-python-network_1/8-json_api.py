@@ -24,5 +24,3 @@ if __name__ == '__main__':
             print("[{}] {}".format(my_dict['id'], my_dict['name']))
     except ValueError:
         print('Not a valid JSON')
-
-
