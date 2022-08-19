@@ -4,7 +4,7 @@ with the letter as a parameter.
 """
 
 from ast import arg
-
+import json
 
 if __name__ == '__main__':
     import requests
@@ -19,4 +19,13 @@ if __name__ == '__main__':
 
     req = requests.post(url, data=myobj)
 
-    print(req.text)
+    try:
+        my_dict = json.loads(req)
+        if len(req) == 0:
+            print("No result")
+        else:
+            print(my_dict['id'])
+    except ValueError:
+        print('Not a valid JSON')
+
+
