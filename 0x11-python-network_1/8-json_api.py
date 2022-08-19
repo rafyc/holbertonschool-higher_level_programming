@@ -20,7 +20,7 @@ if __name__ == '__main__':
     req = requests.post(url, data=myobj)
 
     try:
-        my_dict = json.loads(req)
+        my_dict = json.loads(str(req))
         if len(req) == 0:
             print("No result")
         else:
